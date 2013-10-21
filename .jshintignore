@@ -1,12 +1,1 @@
-Vagrantfile
-*.md
-*.xml
-*.log
-*.sublime*
-public/js/lib/*
-public/ie.js
 node_modules/
-test/frontend/lib/*.js
-public/templates/*.js
-package.json
-srcy.conf.json
