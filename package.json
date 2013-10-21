@@ -1,0 +1,17 @@
+{
+    "name": "api-recorder",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "lint": "[ -z \"$LINTFILES\" ] && LINTFILES='**'; ./node_modules/jshint/bin/jshint ${LINTFILES}"
+    },
+    "dependencies": {
+        "connect": "2.9.2",
+        "underscore": "1.5.2",
+        "argh": "0.1.1",
+        "debug": "0.7.2"
+    },
+    "devDependencies": {
+        "jshint": "2.1.10"
+    }
+}
