@@ -1,7 +1,12 @@
 {
-    "name": "api-recorder",
+    "name": "groundhog",
     "version": "0.0.1",
     "private": true,
+    "description": "A tool to allow recording and playback of API responses to allow for predictable automated testing.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lennym/groundhog.git"
+    },
     "scripts": {
         "lint": "[ -z \"$LINTFILES\" ] && LINTFILES='**'; ./node_modules/jshint/bin/jshint ${LINTFILES}"
     },
