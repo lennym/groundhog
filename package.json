@@ -1,6 +1,6 @@
 {
     "name": "groundhog",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "description": "A tool to allow recording and playback of API responses to allow for predictable automated testing.",
     "repository": {
