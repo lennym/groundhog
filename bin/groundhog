@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var path = require('path'),
+    fs = require('fs');
+
+var dir = path.resolve(process.cwd(), 'node_modules', 'groundhog', 'lib');
+if (!fs.existsSync(dir)) {
+  dir = path.join('..', 'lib');
+}
+
+require(dir);
