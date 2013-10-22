@@ -30,9 +30,9 @@ function start(err) {
     var handler;
 
     if (record) {
-        handler = require('./recorder');
+        handler = require('./lib/recorder');
     } else {
-        handler = require('./playback');
+        handler = require('./lib/playback');
     }
 
     connect()
