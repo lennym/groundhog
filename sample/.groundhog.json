@@ -1,0 +1,9 @@
+{
+  "dir": "./test/recordings",
+  "proxies": [
+     {  "hostname": "yld.io",
+        "port": 3003,
+        "protocol": "http"
+     }
+  ]
+}

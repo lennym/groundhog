@@ -1,0 +1,10 @@
+{
+  "name": "groundhog-sample",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "request": "~2.27.0"
+  }
+}
