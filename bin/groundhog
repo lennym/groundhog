@@ -1,11 +1,55 @@
 #!/usr/bin/env node
 
-var path = require('path'),
-    fs = require('fs');
+var fs = require('fs'),
+    path = require('path'),
+    argh = require('argh'),
+    _ = require('underscore'),
+    groundhog = require('../lib');
 
-var dir = path.resolve(process.cwd(), 'node_modules', 'groundhog', 'lib');
-if (!fs.existsSync(dir)) {
-    dir = path.join('..', 'lib');
+var options = {
+        record: argh.argv.record,
+        dir: argh.argv.dir,
+        hostname: argh.argv.hostname,
+        strict: argh.argv.strict,
+        port: argh.argv.port
+    },
+    configFile;
+
+if (argh.argv.config) {
+    configFile = argh.argv.config;
+} else if (fs.existsSync(path.join(process.cwd(), '.groundhog.json'))) {
+    configFile = path.join(process.cwd(), '.groundhog.json');
 }
 
-require(dir);
+if (configFile) {
+    var config = fs.readFileSync(configFile);
+    if (config) {
+        _.extend(options, JSON.parse(config));
+    } else {
+        throw new Error('Config file: ' + configFile + ' could not be found.');
+    }
+}
+
+if (argh.argv.help || argh.argv.h || !options.dir || !options.hostname) {
+    usage();
+}
+
+groundhog(options);
+
+function usage() {
+    console.log('Usage: ./bin/groundhog');
+    console.log('Usage: node index.js\n');
+    console.log('Attempts to load configuration options from a ".groundhog.json" if it exists in the current working directory.\n\n');
+
+    console.log('Usage: ./bin/groundhog --config');
+    console.log('--config        load the options from a config file specified\n\n');
+
+    console.log('Usage: ./bin/groundhog --hostname <hostname> --dir <directory> [--port] [--record] [--strict]');
+    console.log('--hostname      host to which to proxy requests');
+    console.log('--dir           directory in which to read/write playback files');
+    console.log('--record        record the current session');
+    console.log('--port          port to run on (default: 3001)');
+    console.log('--strict        only serve recordings in playback mode\n\n');
+
+    process.exit();
+}
