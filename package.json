@@ -8,7 +8,8 @@
     "url": "https://github.com/lennym/groundhog.git"
   },
   "scripts": {
-    "lint": "[ -z \"$LINTFILES\" ] && LINTFILES='**'; ./node_modules/jshint/bin/jshint ${LINTFILES}"
+    "lint": "[ -z \"$LINTFILES\" ] && LINTFILES='**'; ./node_modules/jshint/bin/jshint ${LINTFILES}",
+    "test": "node test/integration.js"
   },
   "bin": {
     "groundhog": "./bin/groundhog"
