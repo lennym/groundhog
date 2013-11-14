@@ -13,21 +13,20 @@ var options = {
         strict: argh.argv.strict,
         port: argh.argv.port
     },
-    configFile;
+    configFilename;
 
 if (argh.argv.config) {
-    configFile = argh.argv.config;
+    configFilename = argh.argv.config;
 } else if (fs.existsSync(path.join(process.cwd(), '.groundhog.json'))) {
-    configFile = path.join(process.cwd(), '.groundhog.json');
+    configFilename = path.join(process.cwd(), '.groundhog.json');
 }
 
-if (configFile) {
-    var config = fs.readFileSync(configFile);
-    if (config) {
-        _.extend(options, JSON.parse(config));
-    } else {
-        throw new Error('Config file: ' + configFile + ' could not be found.');
-    }
+
+var config = fs.readFileSync(configFilename);
+if (config) {
+    _.extend(options, JSON.parse(config));
+} else {
+    throw new Error('Config file: ' + configFilename + ' could not be found.');
 }
 
 if (argh.argv.help || argh.argv.h || !options.dir || !(options.hostname || options.proxies)) {
