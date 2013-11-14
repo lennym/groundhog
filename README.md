@@ -28,6 +28,59 @@ Usage: groundhog --hostname <hostname> --dir <directory> [--port] [--record] [--
 --strict        only serve recordings in playback mode
 ```
 
+## Config
+
+### Example
+
+```json
+{
+    "dir": "./test/recordings",
+    "hostname": "www.example.com",
+    "protocol": "https",
+    "port": 3003
+}
+```
+
+#### dir
+
+Sets the directory in which recording files are written
+
+#### hostname
+
+Hostname of the internal service
+
+#### protocol
+
+Protocol of the external service - `http|https` - default `http`
+
+#### port
+
+Port groundhog will proxy on - default `3001`
+
+### Proxies
+
+If you want to proxy more than one service then you can define your proxies as an array.
+The properties for each host are as above.
+
+```json
+{
+    "dir": "./test/recordings",
+    "proxies": [
+        {
+            "hostname": "www.example.com",
+            "protocol": "https",
+            "port": 3003
+        },
+        {
+            "hostname": "www.example.net",
+            "protocol": "http",
+            "port": 3004
+        }
+    ]
+}
+```
+
+
 ## Sample
 
 ``` sh
@@ -108,3 +161,4 @@ ls test/recordings
 
 Of course, don't forget to run the real tests. If they break and mocks don't,
 you might have a problem.
+
