@@ -2,7 +2,7 @@
   "name": "groundhog",
   "version": "0.1.1",
   "preferGlobal": true,
-  "description": "A tool to allow recording and playback of API responses to allow for predictable automated testing.",
+  "description": "A tool to record and playback API responses to allow for predictable automated testing.",
   "contributors": [
     {
       "name": "Lenny Martin",
