@@ -1,22 +1,29 @@
 {
-    "name": "groundhog",
-    "version": "0.0.6",
-    "private": true,
-    "description": "A tool to allow recording and playback of API responses to allow for predictable automated testing.",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/lennym/groundhog.git"
-    },
-    "scripts": {
-        "lint": "[ -z \"$LINTFILES\" ] && LINTFILES='**'; ./node_modules/jshint/bin/jshint ${LINTFILES}"
-    },
-    "dependencies": {
-        "connect": "2.9.2",
-        "underscore": "1.5.2",
-        "argh": "0.1.1",
-        "debug": "0.7.2"
-    },
-    "devDependencies": {
-        "jshint": "2.1.10"
-    }
+  "name": "groundhog",
+  "version": "0.0.6",
+  "private": true,
+  "description": "A tool to allow recording and playback of API responses to allow for predictable automated testing.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lennym/groundhog.git"
+  },
+  "scripts": {
+    "lint": "[ -z \"$LINTFILES\" ] && LINTFILES='**'; ./node_modules/jshint/bin/jshint ${LINTFILES}",
+    "test": "node test/integration.js"
+  },
+  "bin": {
+    "groundhog": "./bin/groundhog"
+  },
+  "dependencies": {
+    "connect": "2.9.2",
+    "underscore": "1.5.2",
+    "argh": "0.1.1",
+    "debug": "0.7.2",
+    "mkdirp": "~0.3.5"
+  },
+  "devDependencies": {
+    "jshint": "2.1.10",
+    "tap": "~0.4.4",
+    "nixt": "~0.0.4"
+  }
 }
