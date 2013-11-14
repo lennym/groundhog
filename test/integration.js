@@ -53,7 +53,7 @@ test('record the interaction', function (t) {
     .expect(function (response) {
         t.equal(response.err, null);
         t.equal(response.code, 0);
-        t.ok(/groundhog:recorder/.test(response.stderr));
+        t.isSimilar(response.stderr, /groundhog:recorder/);
     })
     .end(function () { t.end(); });
 });

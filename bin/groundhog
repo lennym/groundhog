@@ -34,7 +34,7 @@ if (argh.argv.help || argh.argv.h || !options.dir || !(options.hostname || optio
     usage();
 }
 
-groundhog(options);
+groundhog.run(options);
 
 function usage() {
     console.log('Usage: groundhog [--record]');
