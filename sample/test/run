@@ -1,17 +1,47 @@
-#!/bin/bash
+#!/usr/bin/env node
 
-trap '' PIPE
-{
-  #
-  # start the server we proxy to
-  #
-  _PROXYTO=http://localhost:3003 _APPPORT=1337 node app.js <&3 >&4 |
-  #
-  # real life this would just be groundhog
-  #
-  DEBUG="groundhog:*" ../bin/groundhog $* <&3 >&4 |
-  #
-  # run our tests
-  #
-  _PROXYTO=http://localhost:3003 _APPPORT=1337 node test/index.js <&3 >&4
-} 3<&0 4>&1
+var args = [].splice.call(process.argv, 2);
+
+var cp = require('child_process'),
+    _ = require('underscore');
+
+var app = cp.spawn('node', ['app.js'], {
+    env: _.extend({}, process.env, {
+        _PROXYTO: 'http://localhost:3003',
+        _APPPORT: '1337',
+        PORT: 3001
+    }),
+    cwd: process.cwd(),
+    stdio: 'ignore'
+});
+
+var recorder = cp.spawn('../bin/groundhog', args, {
+    env: _.extend({}, process.env, {
+        DEBUG: 'groundhog:*'
+    }),
+    cwd: process.cwd(),
+    stdio: 'inherit'
+});
+var tests = cp.spawn('node', ['test/index.js'], {
+    env: _.extend({}, process.env, {
+        _PROXYTO: 'http://localhost:3003',
+        _APPPORT: 1337
+    }),
+    cwd: process.cwd(),
+    stdio: 'inherit'
+});
+
+app.on('error', quit);
+recorder.on('error', quit);
+tests.on('error', quit);
+
+app.on('exit', quit);
+recorder.on('exit', quit);
+tests.on('exit', quit);
+
+function quit(code) {
+    app.kill();
+    recorder.kill();
+    tests.kill();
+    process.exit(code);
+}

@@ -5,6 +5,7 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "request": "~2.27.0"
+    "request": "~2.27.0",
+    "underscore": "~1.5.2"
   }
 }

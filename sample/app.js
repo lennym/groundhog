@@ -21,4 +21,5 @@ console.log('ready');
 
 setTimeout(function () {
     console.log('bye bye');
+    process.exit();
 }, 500);
