@@ -3,6 +3,16 @@
   "version": "0.0.6",
   "private": true,
   "description": "A tool to allow recording and playback of API responses to allow for predictable automated testing.",
+  "contributors": [
+    {
+      "name": "Lenny Martin",
+      "email": "hello@lennym.co.uk"
+    },
+    {
+      "name": "Nuno Job",
+      "email": "nunojobpinto@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/lennym/groundhog.git"
