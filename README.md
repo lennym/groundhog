@@ -37,7 +37,8 @@ Usage: groundhog --hostname <hostname> --dir <directory> [--port] [--record] [--
     "dir": "./test/recordings",
     "hostname": "www.example.com",
     "protocol": "https",
-    "port": 3003
+    "port": 3003,
+    "strict": false
 }
 ```
 
@@ -56,6 +57,10 @@ Protocol of the external service - `http|https` - default `http`
 #### port
 
 Port groundhog will proxy on - default `3001`
+
+#### strict
+
+Enabling strict mode will return a 500 response in playback mode if a recording does not exist - default `false`
 
 ### Proxies
 
