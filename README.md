@@ -11,18 +11,18 @@ npm install -g groundhog
 ## Usage
 
 ```
-Usage: groundhog
+Usage: groundhog [--record]
 Attempts to load configuration options from a ".groundhog.json" if it exists in the current working directory.
+--record        record the current session
 
 
-Usage: groundhog --config
+Usage: groundhog --config [--record]
 --config        load the options from a config file specified
 
 
-Usage: groundhog --hostname <hostname> --dir <directory> [--port] [--record] [--strict]
+Usage: groundhog --hostname <hostname> --dir <directory> [--port] [--protocol] [--record] [--strict]
 --hostname      host to which to proxy requests
 --dir           directory in which to read/write playback files
---record        record the current session
 --port          port to run on (default: 3001)
 --protocol      protocol to run (default: http)
 --strict        only serve recordings in playback mode
@@ -50,15 +50,15 @@ Sets the directory in which recording files are written
 
 Hostname of the internal service
 
-#### protocol
+#### protocol (optional)
 
 Protocol of the external service - `http|https` - default `http`
 
-#### port
+#### port (optional)
 
 Port groundhog will proxy on - default `3001`
 
-#### strict
+#### strict (optional)
 
 Enabling strict mode will return a 500 response in playback mode if a recording does not exist - default `false`
 
