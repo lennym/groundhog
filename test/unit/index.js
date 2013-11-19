@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tap').test,
-    groundhog = require(__dirname + '/../lib/index'),
+    groundhog = require(__dirname + '/../../lib/index'),
     sinon = require('sinon'),
     connect = require('connect');
 
