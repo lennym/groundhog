@@ -9,6 +9,7 @@ var fs = require('fs'),
 
 var options = {
         record: argh.argv.record,
+        playback: argh.argv.playback,
         dir: argh.argv.dir,
         hostname: argh.argv.hostname,
         strict: argh.argv.strict,
@@ -37,16 +38,14 @@ if (argh.argv.help || argh.argv.h || !options.dir || !(options.hostname || optio
 groundhog.run(options);
 
 function usage() {
-    console.log('Usage: groundhog [--record]');
+    console.log('Usage: groundhog [--record [name]]');
     console.log('Attempts to load configuration options from a ".groundhog.json" if it exists in the current working directory.');
-    console.log('--record        record the current session\n\n');
+    console.log('--record        record the current session - if a value is provided then the recording file is given that name\n\n');
 
 
-    console.log('Usage: groundhog --config [--record]');
-    console.log('--config        load the options from a config file specified\n\n');
-
-
-    console.log('Usage: groundhog --hostname <hostname> --dir <directory> [--port] [--protocol] [--record] [--strict]');
+    console.log('Config');
+    console.log('--config        load the options from a config file specified');
+    console.log('--playback      playback the recordings from a specific recording file (default: the last recording created)');
     console.log('--hostname      host to which to proxy requests');
     console.log('--dir           directory in which to read/write playback files');
     console.log('--port          port to run on (default: 3001)');
