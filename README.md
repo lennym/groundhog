@@ -62,7 +62,7 @@ Port groundhog will proxy on - default `3001`
 
 Enabling strict mode will return a 500 response in playback mode if a recording does not exist - default `false`
 
-### Proxies
+### Multiple Proxies
 
 If you want to proxy more than one service then you can define your proxies as an array.
 The properties for each host are as above.
