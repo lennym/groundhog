@@ -1,6 +1,8 @@
 # groundhog
 
-A tool to record and playback API responses to allow for predictable automated testing
+A tool to record and playback API responses to allow for predictable automated testing.
+
+'groundhog --record' creates a proxy which records any requests that pass through it, so that they can be played back at a later date.
 
 ## Installation
 
@@ -13,14 +15,14 @@ npm install -g groundhog
 ```
 Usage: groundhog [--record [name]]
 Attempts to load configuration options from a ".groundhog.json" if it exists in the current working directory.
---record        record the current session - if a value is provided then the recording file is given that name
+--record        record the current session - if a name is provided then the recording file is given that name
 
 Config
 --config        load the options from a config file specified
 --playback      playback the recordings from a specific recording file (default: the last recording created)
 --hostname      host to which to proxy requests
 --dir           directory in which to read/write playback files
---port          port to run on (default: 3001)
+--port          port to listen on (default: 3001)
 --protocol      protocol to run (default: http)
 --strict        only serve recordings in playback mode
 ```

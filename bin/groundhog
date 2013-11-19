@@ -48,7 +48,7 @@ function usage() {
     console.log('--playback      playback the recordings from a specific recording file (default: the last recording created)');
     console.log('--hostname      host to which to proxy requests');
     console.log('--dir           directory in which to read/write playback files');
-    console.log('--port          port to run on (default: 3001)');
+    console.log('--port          port to listen on (default: 3001)');
     console.log('--protocol      protocol to run (default: http)');
     console.log('--strict        only serve recordings in playback mode');
 
