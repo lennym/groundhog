@@ -40,7 +40,7 @@ groundhog.run(options);
 function usage() {
     console.log('Usage: groundhog [--record [name]]');
     console.log('Attempts to load configuration options from a ".groundhog.json" if it exists in the current working directory.');
-    console.log('--record        record the current session - if a value is provided then the recording file is given that name\n\n');
+    console.log('--record        record the current session\n\n');
 
 
     console.log('Config');

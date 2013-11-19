@@ -15,12 +15,14 @@ npm install -g groundhog
 ```
 Usage: groundhog [--record [name]]
 Attempts to load configuration options from a ".groundhog.json" if it exists in the current working directory.
---record        record the current session - if a name is provided then the recording file is given that name
+--record        record the current session
+                if a name is provided then the recording file is given that name, otherwise it is
+                named with the current timestamp
 
-Config
---config        load the options from a config file specified
---playback      playback the recordings from a specific recording file (default: the last recording created)
+CLI Config Options
 --hostname      host to which to proxy requests
+--config        load the options from a config file specified (default ./.groundhog.json)
+--playback      playback the recordings from a specific recording file (default: last recording created)
 --dir           directory in which to read/write playback files
 --port          port to listen on (default: 3001)
 --protocol      protocol to run (default: http)
