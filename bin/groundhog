@@ -34,22 +34,24 @@ if (argh.argv.help || argh.argv.h || !options.dir || !(options.hostname || optio
     usage();
 }
 
-groundhog(options);
+groundhog.run(options);
 
 function usage() {
-    console.log('Usage: groundhog');
-    console.log('Attempts to load configuration options from a ".groundhog.json" if it exists in the current working directory.\n\n');
+    console.log('Usage: groundhog [--record]');
+    console.log('Attempts to load configuration options from a ".groundhog.json" if it exists in the current working directory.');
+    console.log('--record        record the current session\n\n');
 
-    console.log('Usage: groundhog --config');
+
+    console.log('Usage: groundhog --config [--record]');
     console.log('--config        load the options from a config file specified\n\n');
 
-    console.log('Usage: groundhog --hostname <hostname> --dir <directory> [--port] [--record] [--strict]');
+
+    console.log('Usage: groundhog --hostname <hostname> --dir <directory> [--port] [--protocol] [--record] [--strict]');
     console.log('--hostname      host to which to proxy requests');
     console.log('--dir           directory in which to read/write playback files');
-    console.log('--record        record the current session');
     console.log('--port          port to run on (default: 3001)');
     console.log('--protocol      protocol to run (default: http)');
-    console.log('--strict        only serve recordings in playback mode\n\n');
+    console.log('--strict        only serve recordings in playback mode');
 
     process.exit();
 }

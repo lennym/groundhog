@@ -1,8 +1,8 @@
 {
   "name": "groundhog",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "preferGlobal": true,
-  "description": "A tool to allow recording and playback of API responses to allow for predictable automated testing.",
+  "description": "A tool to record and playback API responses to allow for predictable automated testing.",
   "contributors": [
     {
       "name": "Lenny Martin",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "lint": "[ -z \"$LINTFILES\" ] && LINTFILES='**'; ./node_modules/jshint/bin/jshint ${LINTFILES}",
-    "test": "node test/integration.js"
+    "test": "node test/index.js"
   },
   "bin": {
     "groundhog": "./bin/groundhog"
@@ -34,6 +34,7 @@
   "devDependencies": {
     "jshint": "2.1.10",
     "tap": "~0.4.4",
-    "nixt": "~0.0.4"
+    "nixt": "~0.0.4",
+    "sinon": "~1.7.3"
   }
 }
