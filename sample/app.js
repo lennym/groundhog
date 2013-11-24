@@ -16,10 +16,3 @@ http.createServer(function (req, res) {
     //
     req.pipe(request(host + req.url)).pipe(res);
 }).listen(port, '127.0.0.1');
-
-console.log('ready');
-
-setTimeout(function () {
-    console.log('bye bye');
-    process.exit();
-}, 500);
