@@ -1,5 +1,9 @@
 # groundhog
 
+[![Build Status](https://travis-ci.org/lennym/groundhog.png)](https://travis-ci.org/lennym/groundhog)
+
+[![NPM](https://nodei.co/npm/groundhog.png?downloads=true&stars=true)](https://nodei.co/npm/groundhog/)
+
 A tool to record and playback API responses to allow for predictable automated testing.
 
 'groundhog --record' creates a proxy which records any requests that pass through it, so that they can be played back at a later date.
